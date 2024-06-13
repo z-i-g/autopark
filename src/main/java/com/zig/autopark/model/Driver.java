@@ -29,8 +29,9 @@ public class Driver {
     @Column(name = "experience")
     private Integer experience;
 
-    @Column(name = "active")
-    private Boolean active;
+    @OneToOne
+    @JoinColumn(name = "active_in_vehicle_id")
+    private Vehicle activeInVehicle;
 
     @ManyToOne
     @JoinColumn(name = "enterprise_id", referencedColumnName = "id")

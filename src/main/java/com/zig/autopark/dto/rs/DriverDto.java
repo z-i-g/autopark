@@ -1,8 +1,5 @@
-package com.zig.autopark.dto;
+package com.zig.autopark.dto.rs;
 
-import com.zig.autopark.model.Enterprise;
-import com.zig.autopark.model.Vehicle;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,7 +20,9 @@ public class DriverDto {
 
     private Long enterpriseId;
 
-//    private Long activeInVehicle;
+    private Boolean active;
+
+    private Long activeInVehicle;
 
     private List<Long> vehicleIds;
 }

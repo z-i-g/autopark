@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Enterprise</title>
+</head>
+<body>
+
+<h1>Enterprise:</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Staff Number</th>
+        <th>Supervisor Name</th>
+        <th>Vehicles</th>
+        <th>Reports</th>
+    </tr>
+    <tr>
+        <td th:text="${enterprise.id}">id</td>
+        <td th:text="${enterprise.name}">name</td>
+        <td th:text="${enterprise.city}">city</td>
+        <td th:text="${enterprise.staffNumber}">staffNumber</td>
+        <td th:text="${enterprise.superVisorName}">superVisorName</td>
+        <td><a th:text="vehicles" th:href="@{/enterprise/vehicles(enterpriseId=${enterprise.id})}">Vehicles</a></td>
+        <td><a th:text="reports" th:href="@{/reports}">Reports</a></td>
+    </tr>
+</table>
+<br/>
+<hr/>
+</body>
+</html>

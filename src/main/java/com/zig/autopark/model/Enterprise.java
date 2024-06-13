@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -29,9 +28,12 @@ public class Enterprise {
     @Column(name = "super_visor_name")
     private String superVisorName;
 
-    @OneToMany(mappedBy = "enterprise")
+    @OneToMany(mappedBy = "enterprise", fetch = FetchType.LAZY)
     private List<Vehicle> vehicles;
 
-    @OneToMany(mappedBy = "enterprise")
+    @OneToMany(mappedBy = "enterprise", fetch = FetchType.LAZY)
     private List<Driver> drivers;
+
+    @ManyToMany(mappedBy = "enterprises", fetch = FetchType.LAZY)
+    private List<Manager> managers;
 }

@@ -1,4 +1,4 @@
-package com.zig.autopark.dto;
+package com.zig.autopark.dto.rs;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zig.autopark.model.VehicleType;

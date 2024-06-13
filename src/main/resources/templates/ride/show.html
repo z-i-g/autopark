@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rides</title>
+</head>
+<body>
+
+<h1>Rides:</h1>
+<form th:action="@{/rides/route}" th:method="POST">
+    <label th:each="ride : ${rides}">
+        <input type="checkbox" name="selectedRides" th:value="${ride.id}"/>
+        <span th:text="${ride.getStartDateTime()}"></span>
+    </label>
+    <input type="submit" value="View selected rides"/>
+</form>
+<br/>
+<hr/>
+</body>
+</html>

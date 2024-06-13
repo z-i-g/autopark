@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Drivers</title>
+</head>
+<body>
+
+<h1>Drivers:</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Age</th>
+        <th>Experience</th>
+    </tr>
+    <tr th:each="driver : ${drivers}">
+        <td th:text="${driver.id}">id</td>
+        <td th:text="${driver.name}">name</td>
+        <td th:text="${driver.salary}">salary</td>
+        <td th:text="${driver.age}">age</td>
+        <td th:text="${driver.experience}">experience</td>
+    </tr>
+    <h3><a th:href="@{/drivers/add(id=${vehicleId})}">Add driver</a></h3>
+</table>
+<br/>
+<hr/>
+</body>
+</html>

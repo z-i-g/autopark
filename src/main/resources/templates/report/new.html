@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+</head>
+<body>
+<h1>Reports</h1>
+<form th:method="POST" th:action="@{/reports/gen}" th:object="${report}">
+    <label for="reportType">Report type:</label>
+    <select id="reportType" name="reportType" th:field="*{type}">
+        <option value="carMileageReport">Car mileage by period</option>
+        <!-- Add other report types here -->
+    </select>
+    <br>
+    <label for="startDate">Start date:</label>
+    <input type="date" th:field="*{startDate}" id="startDate" required/>
+    <label for="endDate">End date:</label>
+    <input type="date" th:field="*{endDate}" id="endDate" required/>
+    <br>
+    <label for="period">Period:</label>
+    <select id="period" name="period" th:field="*{period}">
+        <option value="DAY">Day</option>
+        <option value="MONTH">Month</option>
+        <option value="YEAR">Year</option>
+    </select><br>
+    <label for="period">Select vehicle:</label>
+    <label for="vehicle"></label><select name="vehicle" th:field="*{vehicleId}" id="vehicle">
+        <option th:each="selectedVehicle :${vehicles}"
+                th:value="${selectedVehicle.id}"
+                th:utext="${selectedVehicle.id + ' ' + selectedVehicle.brandName}">
+    </select>
+    <input type="submit" value="Сгенерировать отчёт">
+</form>
+</body>
+</html>

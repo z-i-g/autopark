@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Enterprises</title>
+</head>
+<body>
+
+<h1>Enterprises:</h1>
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+    <tr th:each="enterprise : ${enterprises}">
+        <td><a th:text="${enterprise.name}" th:href="@{/enterprises/details/{enterpriseId}(enterpriseId=${enterprise.id})}">Select</a></td>
+    </tr>
+</table>
+
+<br/>
+<hr/>
+</body>
+</html>

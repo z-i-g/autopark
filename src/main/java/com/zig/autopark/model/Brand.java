@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Table(name = "brand")
 @Getter @Setter
@@ -30,8 +28,4 @@ public class Brand {
     @Enumerated(EnumType.STRING)
     @Column(name = "vehicle_type")
     private VehicleType vehicleType;
-
-    @OneToMany(mappedBy = "brand")
-    private List<Vehicle> vehicles;
-
 }

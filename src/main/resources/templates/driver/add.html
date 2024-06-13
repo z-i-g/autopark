@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add driver</title>
+</head>
+<body>
+
+<h1>Add driver:</h1>
+<form th:method="PATCH" th:action="@{/drivers/save(id=${vehicleId})}" th:object="${driver}"
+      th:name="${_csrf.parameterName}"
+      th:value="${_csrf.token}" >
+
+    <select name="driver" th:field="*{id}" id="driver">
+    <option th:each="selectDriver :${drivers}"
+            th:value="${selectDriver.id}"
+            th:utext="${selectDriver.name}">
+</select>
+<input type="submit" value="Update!"/>
+</form>
+<br/>
+<hr/>
+</body>
+</html>
+
+

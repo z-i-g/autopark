@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -21,8 +22,14 @@ public class Vehicle {
     @Column(name = "year")
     private String year;
 
+    @Column(name = "registration_number")
+    private String registrationNumber;
+
     @Column(name = "mileage")
     private String mileage;
+
+    @Column(name = "purchase_date_time")
+    private LocalDateTime purchaseDateTime;
 
     @ManyToOne
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
@@ -32,7 +39,10 @@ public class Vehicle {
     @JoinColumn(name = "enterprise_id", referencedColumnName = "id")
     private Enterprise enterprise;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY)
+    private List<CarMileageReport> reports;
+
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "driver_vehicle",
             joinColumns = @JoinColumn(name = "vehicle_id"),

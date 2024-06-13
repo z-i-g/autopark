@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicles</title>
+</head>
+<body>
+
+<h1>Report:</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Vehicle registration number</th>
+        <th>Period</th>
+        <th>Mileage (km)</th>
+    </tr>
+    <tr th:each="repo : ${reports}">
+        <td th:text="${repo.name}">name</td>
+        <td th:text="${repo.vehicleRegistrationNumber}">vehicle registration number</td>
+        <td th:text="${repo.period}">period</td>
+        <td th:text="${repo.mileage}">mileage</td>
+    </tr>
+</table>
+<br/>
+<hr/>
+</body>
+</html>

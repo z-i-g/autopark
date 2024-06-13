@@ -28,10 +28,15 @@
         th:utext="${brandNew.name}">
     </select>
     <br/>
+    <label for="enterprise">Select enterprise: </label>
+    <!--    <input th:field="*{brand.vehicleType}" placeholder="Title"/>-->
+    <select name="enterprise" th:field="*{enterpriseId}" id="enterprise">
+        <option th:each="enterpriseNew :${enterprises}"
+                th:value="${enterpriseNew.id}"
+                th:utext="${enterpriseNew.name}">
+    </select>
 <br/>
     <input type="submit" value="Create!"/>
 </form>
 </body>
 </html>
-
-01

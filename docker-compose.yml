@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/spring
+    depends_on:
+      - db
+  db:
+    build: ./db
+    restart: always
+    environment:
+      - POSTGRES_DB=spring
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=ayrat4578
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgis.sql:/docker-entrypoint-initdb.d/1_postgis.sql
+      - ./create_ddl.sql:/docker-entrypoint-initdb.d/2_data.sql
+      - ./fill_db.sql:/docker-entrypoint-initdb.d/3_fill_db.sql
