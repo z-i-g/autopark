@@ -2,7 +2,7 @@ name: Deploy Spring Boot Application with Docker Compose
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   deploy:
