@@ -8,6 +8,7 @@ Autopark - это проект на Spring Boot для мониторинга и
 - Postgres 16 + PostGIS;
 - Hibernate Spatial;
 - Gatling (нагрузочное тестирование);
+- Docker;
 - Thymeleaf;
 - Telegrambots;
 - Prometheus, Grafana;
